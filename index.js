@@ -30,6 +30,7 @@ app.get('*', function (req, res) {
             return res.send(JSON.stringify(response?.data));
         })
         .catch(function (error) {
+            console.log('error: ', error);
             return res.status(error?.response?.status ?? 500).send(error?.response?.data);
         });
 })
@@ -53,7 +54,7 @@ app.post('*', function (req, res) {
             return res.send(JSON.stringify(response?.data));
         })
         .catch(function (error) {
-            console.log(error?.response?.status, error?.response?.data);
+            console.log(error);
             return res.status(error?.response?.status ?? 500).send(error?.response?.data);
         });
 })
@@ -78,6 +79,7 @@ app.options('*', function (req, res) {
             return res.send(JSON.stringify(response?.data));
         })
         .catch(function (error) {
+            console.log('error: ', error);
             return res.send(error);
         });
 })
@@ -102,6 +104,7 @@ app.delete('*', function (req, res) {
             return res.send(JSON.stringify(response?.data));
         })
         .catch(function (error) {
+            console.log('error: ', error);
             return res.send(error);
         });
 })
