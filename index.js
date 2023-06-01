@@ -24,11 +24,11 @@ app.get('*', function (req, res) {
 
     axios(config)
         .then(function (response) {
-            console.log(url + " success => ", response.data);
-            return res.send(JSON.stringify(response.data));
+            console.log(url + " success => ", response?.data);
+            return res.send(JSON.stringify(response?.data));
         })
         .catch(function (error) {
-            return res.status(error.response.status).send(error.response.data);
+            return res.status(error?.response?.status).send(error?.response?.data);
         });
 })
 
@@ -47,12 +47,12 @@ app.post('*', function (req, res) {
 
     axios(config)
         .then(function (response) {
-            console.log(url + " success =>", response.data);
-            return res.send(JSON.stringify(response.data));
+            console.log(url + " success =>", response?.data);
+            return res.send(JSON.stringify(response?.data));
         })
         .catch(function (error) {
-            console.log(error.response.status, error.response.data);
-            return res.status(error.response.status).send(error.response.data);
+            console.log(error?.response?.status, error?.response?.data);
+            return res.status(error?.response?.status).send(error?.response?.data);
         });
 })
 
@@ -73,7 +73,7 @@ app.options('*', function (req, res) {
 
     axios(config)
         .then(function (response) {
-            return res.send(JSON.stringify(response.data));
+            return res.send(JSON.stringify(response?.data));
         })
         .catch(function (error) {
             return res.send(error);
@@ -97,7 +97,7 @@ app.delete('*', function (req, res) {
 
     axios(config)
         .then(function (response) {
-            return res.send(JSON.stringify(response.data));
+            return res.send(JSON.stringify(response?.data));
         })
         .catch(function (error) {
             return res.send(error);
@@ -105,4 +105,4 @@ app.delete('*', function (req, res) {
 })
 
 // app.listen(80, () => console.log("app is runing on 8080"))
-app.listen(5000, () => console.log("app is runing on 80"))
+app.listen(5000, () => console.log("app is runing on 5000"))
