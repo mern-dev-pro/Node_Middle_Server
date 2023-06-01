@@ -28,7 +28,7 @@ app.get('*', function (req, res) {
             return res.send(JSON.stringify(response?.data));
         })
         .catch(function (error) {
-            return res.status(error?.response?.status).send(error?.response?.data);
+            return res.status(error?.response?.status ?? 500).send(error?.response?.data);
         });
 })
 
@@ -52,7 +52,7 @@ app.post('*', function (req, res) {
         })
         .catch(function (error) {
             console.log(error?.response?.status, error?.response?.data);
-            return res.status(error?.response?.status).send(error?.response?.data);
+            return res.status(error?.response?.status ?? 500).send(error?.response?.data);
         });
 })
 
