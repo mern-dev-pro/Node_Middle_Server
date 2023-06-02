@@ -81,6 +81,7 @@ app.put('*', function (req, res) {
         data
     };
 
+    console.log('config: ', config);
     axios(config)
         .then(function (response) {
             console.log(url + " success =>", response?.data);
