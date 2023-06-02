@@ -2,13 +2,16 @@ const express = require('express')
 const app = express();
 const axios = require('axios');
 const morgan = require('morgan');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const host = "https://tradevill.online";
 // const host = "https://5a11-189-165-75-242.ngrok.io";
 
 app.use(bodyParser.json());
-app.use(morgan('dev'))
+app.use(morgan('dev'));
+app.use(cors())
+
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('*', function (req, res) {
