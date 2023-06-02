@@ -15,6 +15,8 @@ app.get('*', function (req, res) {
     const method = req.method;
     const url = host + req.url;
     const headers = req.headers;
+    delete headers.host;
+    delete headers.referer;
     var data = JSON.stringify(req.body);
 
     var config = {
@@ -39,6 +41,8 @@ app.post('*', function (req, res) {
     const method = req.method;
     const url = host + req.url;
     const headers = req.headers;
+    delete headers.host;
+    delete headers.referer;
     var data = JSON.stringify(req.body);
 
     var config = {
@@ -63,6 +67,8 @@ app.options('*', function (req, res) {
     const method = req.method;
     const url = host + req.url;
     const headers = req.headers;
+    delete headers.host;
+    delete headers.referer;
     var data = JSON.stringify(req.body);
 
     var config = {
@@ -88,6 +94,8 @@ app.delete('*', function (req, res) {
     const method = req.method;
     const url = host + req.url;
     const headers = req.headers;
+    delete headers.host;
+    delete headers.referer;
     var data = JSON.stringify(req.body);
 
     var config = {
