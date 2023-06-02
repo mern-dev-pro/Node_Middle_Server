@@ -66,6 +66,58 @@ app.post('*', function (req, res) {
         });
 })
 
+app.put('*', function (req, res) {
+    const method = req.method;
+    const url = host + req.url;
+    const headers = req.headers;
+    delete headers.host;
+    delete headers.referer;
+    var data = JSON.stringify(req.body);
+
+    var config = {
+        method,
+        url,
+        headers,
+        data
+    };
+
+    axios(config)
+        .then(function (response) {
+            console.log(url + " success =>", response?.data);
+            return res.send(JSON.stringify(response?.data));
+        })
+        .catch(function (error) {
+            console.log(error);
+            return res.status(error?.response?.status ?? 500).send(error?.response?.data);
+        });
+})
+
+app.patch('*', function (req, res) {
+    const method = req.method;
+    const url = host + req.url;
+    const headers = req.headers;
+    delete headers.host;
+    delete headers.referer;
+    var data = JSON.stringify(req.body);
+
+    var config = {
+        method,
+        url,
+        headers,
+        data
+    };
+
+    axios(config)
+        .then(function (response) {
+            console.log(url + " success =>", response?.data);
+            return res.send(JSON.stringify(response?.data));
+        })
+        .catch(function (error) {
+            console.log(error);
+            return res.status(error?.response?.status ?? 500).send(error?.response?.data);
+        });
+})
+
 app.options('*', function (req, res) {
     const method = req.method;
     const url = host + req.url;
